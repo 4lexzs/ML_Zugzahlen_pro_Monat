@@ -1,6 +1,6 @@
 # ML_Zugzahlen_pro_Monat
 
-# Beschreibung des Datensatzes
+## Beschreibung des Datensatzes
 Dieser Datensatz enthält Informationen über die Zugzahlen in der Schweiz, aufgeteilt nach Streckenabschnitten und Monaten.
 Die Daten stammen von der Open Data Plattform der SBB und enthalten folgende Felder:
 
@@ -11,19 +11,19 @@ Die Daten stammen von der Open Data Plattform der SBB und enthalten folgende Fel
 - DTV_Vorjahresmonat: Durchschnittliche tägliche Verkehrszahlen des Vorjahresmonats
 - geo_point_2d: Geokoordinaten des Abschnitts
 
-# Datenschutz
+## Datenschutz
 Die Daten sind öffentlich zugänglich und enthalten keine personenbezogenen Informationen. 
 Der Datensatz wurde unter der Open Data Lizenz veröffentlicht.
 
-## Datenanalyse (Teil 2)
+# Datenanalyse (Teil 2)
 
-# Über den Datensatz
+## Über den Datensatz
 
 Dieser Datensatz enthält Informationen über Zugzahlen auf verschiedenen Strecken, gemessen über mehrere Monate. Der Datensatz umfasst verschiedene Felder wie Streckenbezeichnungen, Bezugsmonate, DTV-Werte (Dynamischer Tagesverkehr) und geografische Koordinaten.
 
 Die Daten wurden von der Schweizerischen Bundesbahnen (SBB) erhoben und enthalten Informationen über den Zugverkehr auf verschiedenen Streckenabschnitten. Der Datensatz ermöglicht die Analyse von Verkehrsmustern und -trends im Schweizer Bahnnetz.
 
-# Datenbeschreibung
+## Datenbeschreibung
 
 Der Datensatz enthält folgende wichtige Felder:
 - `Strecke_Bezeichnung`: Name der Zugstrecke
@@ -35,13 +35,13 @@ Der Datensatz enthält folgende wichtige Felder:
 - `DTV_G_Bezugsmonat`: Güterverkehr im Bezugsmonat
 - `geo_point_2d`: Geografische Koordinaten des Abschnitts
 
-# Datenschutz
+## Datenschutz
 
 Der Datensatz enthält keine personenbezogenen Daten, da es sich um aggregierte Verkehrsdaten handelt. Alle Informationen beziehen sich auf öffentliche Verkehrsinfrastruktur und stellen keine datenschutzrechtlichen Bedenken dar.
 
 Die Daten sind für Analyse- und Bildungszwecke öffentlich zugänglich gemacht worden und unterliegen den üblichen Nutzungsbedingungen für öffentliche Verkehrsdaten.
 
-# Ziel der Analyse
+## Ziel der Analyse
 
 Im Rahmen dieses Projekts werde ich den Datensatz analysieren, um:
 1. Muster und Trends im Zugverkehr zu identifizieren
