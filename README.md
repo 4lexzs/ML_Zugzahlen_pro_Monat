@@ -15,9 +15,8 @@ Die Daten stammen von der Open Data Plattform der SBB und enthalten folgende Fel
 Die Daten sind öffentlich zugänglich und enthalten keine personenbezogenen Informationen. 
 Der Datensatz wurde unter der Open Data Lizenz veröffentlicht.
 
-# Datenanalyse (Teil 2)
 
-## Über den Datensatz
+# Datenanalyse (Teil 2)
 
 Dieser Datensatz enthält Informationen über Zugzahlen auf verschiedenen Strecken, gemessen über mehrere Monate. Der Datensatz umfasst verschiedene Felder wie Streckenbezeichnungen, Bezugsmonate, DTV-Werte (Dynamischer Tagesverkehr) und geografische Koordinaten.
 
