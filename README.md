@@ -81,3 +81,54 @@ Die Leistung des Modells wurde auf einem separaten Testsatz (20% der Daten) eval
 - Bestimmtheitsmass (R²): 0.9243
 - Mittlerer absoluter Fehler (MAE): 14.76 Züge pro Tag
 - Wurzel des mittleren quadratischen Fehlers (RMSE): 32.14 Züge pro Tag
+
+
+# Teil 4: Evaluation
+
+## Aufgabe 4.1 - Feature Importance
+Die wichtigsten Felder für das Modell wurden identifiziert und analysiert. Die Top 10 Features sind:
+1. Abschnitt_Zürich HB – Zürich Langstrasse (6.4%)
+2. Strecke_Bezeichnung_Genève Aéroport - Lausanne (4.7%)
+3. Strecke_Bezeichnung_Olten Ost - Heitersberg (4.7%)
+4. Strecke_Bezeichnung_Killwangen - Zürich Altstetion (4.4%)  
+5. Strecke_Bezeichnung_Zürich Oerlikon-Nord / Zürich Wallisellen (3.7%)
+
+Die Visualisierung der Feature Importance wurde in `feature_importance.png` gespeichert.
+
+## Aufgabe 4.2 - Geeignete Messmetrik
+Für das Regressionsmodell wurden folgende Metriken berechnet:
+- R² Score: 0.9951 (erklärt 99.5% der Varianz)
+- Mean Absolute Error: 4.53 Züge/Tag
+- Root Mean Square Error: 12.19 Züge/Tag
+
+Die beste Metrik für dieses Modell ist der R² Score, da er zeigt, wie gut das Modell die Varianz in den Daten erklärt.
+
+## Aufgabe 4.3 - Confusion Matrix
+Es wurde eine Confusion Matrix erstellt, die die Zugzahlen in drei Kategorien einteilt:
+- Niedrig: < 100 Züge/Tag
+- Mittel: 100-300 Züge/Tag  
+- Hoch: > 300 Züge/Tag
+
+### Klassifikationsmetriken:
+- **Niedrig:** Sensitivität: 95.3%, Präzision: 98.1%, Spezifizität: 99.1%
+- **Mittel:** Sensitivität: 98.2%, Präzision: 97.2%, Spezifizität: 97.7%
+- **Hoch:** Sensitivität: 98.6%, Präzision: 98.7%, Spezifizität: 99.7%
+
+Die Confusion Matrix wurde in `confusion_matrix.png` visualisiert.
+
+## Aufgabe 4.4 - Zusammenfassung
+Das Random Forest Modell zeigt ausgezeichnete Leistung mit einem R² von 0.9951. Die Gründe:
+- Starke zeitliche Muster in den Zugzahlen
+- Streckenspezifische Charakteristiken werden gut erkannt
+- Random Forest kann gut mit kategorialen Variablen umgehen
+
+Verbesserungspotenzial:
+- Integration von Wetterinformationen
+- Berücksichtigung von Feiertagen und Schulferien
+- Wochentagseffekte analysieren
+
+## Erstellt Dateien:
+1. `evaluation.ipynb` - Das Jupyter Notebook mit allen Berechnungen
+2. `feature_importance.png` - Feature Importance Visualisierung
+3. `confusion_matrix.png` - Confusion Matrix Heatmap
+4. `actual_vs_predicted.png` - Vergleich von tatsächlichen und vorhergesagten Werten
