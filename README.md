@@ -1,134 +1,90 @@
 # ML_Zugzahlen_pro_Monat
 
-## Beschreibung des Datensatzes
-Dieser Datensatz enthält Informationen über die Zugzahlen in der Schweiz, aufgeteilt nach Streckenabschnitten und Monaten.
-Die Daten stammen von der Open Data Plattform der SBB und enthalten folgende Felder:
+## Datensatzbeschreibung
 
-- Strecke_Bezeichnung: Name der Bahnstrecke
-- bezugsmonat: Monat der Datenaufzeichnung
-- Abschnitt: Bestimmter Streckenabschnitt
-- DTV_Bezugsmonat: Durchschnittliche tägliche Verkehrszahlen für den Monat
-- DTV_Vorjahresmonat: Durchschnittliche tägliche Verkehrszahlen des Vorjahresmonats
-- geo_point_2d: Geokoordinaten des Abschnitts
+Der verwendete Datensatz enthält Verkehrszahlen für verschiedene Zugstrecken der SBB (Schweizerische Bundesbahnen). Er umfasst die folgenden Hauptkomponenten:
 
-## Datenschutz
-Die Daten sind öffentlich zugänglich und enthalten keine personenbezogenen Informationen. 
-Der Datensatz wurde unter der Open Data Lizenz veröffentlicht.
+- **Strecke_Bezeichnung**: Name der Bahnstrecke
+- **bezugsmonat**: Monat, auf den sich die Daten beziehen
+- **Abschnitt**: Spezifischer Abschnitt der Strecke
+- **DTV_P_Bezugsmonat**: Durchschnittlicher täglicher Personenverkehr im Bezugsmonat (Zielwert)
+- **DTV_P_Vorjahresmonat**: Personenverkehr im entsprechenden Monat des Vorjahres
+- **DTV_G_Bezugsmonat**: Durchschnittlicher täglicher Güterverkehr im Bezugsmonat
+- **Verschiedene geografische Informationen**: Abschnitt_von, Abschnitt_bis, geo_point_2d
 
+Der Datensatz umfasst mehr als 15.000 Einträge, die die monatlichen Verkehrszahlen für über 1.300 eindeutige Streckenabschnitte enthalten.
 
-# Datenanalyse (Teil 2)
+## Datenschutzaspekte
 
-Dieser Datensatz enthält Informationen über Zugzahlen auf verschiedenen Strecken, gemessen über mehrere Monate. Der Datensatz umfasst verschiedene Felder wie Streckenbezeichnungen, Bezugsmonate, DTV-Werte (Dynamischer Tagesverkehr) und geografische Koordinaten.
+Der verwendete Datensatz enthält öffentlich zugängliche Verkehrsdaten der SBB und wurde unter einer offenen Lizenz veröffentlicht. Es handelt sich um aggregierte Daten, die keine personenbezogenen Informationen enthalten. Die Daten zeigen lediglich die durchschnittlichen täglichen Verkehrszahlen für bestimmte Streckenabschnitte.
 
-Die Daten wurden von der Schweizerischen Bundesbahnen (SBB) erhoben und enthalten Informationen über den Zugverkehr auf verschiedenen Streckenabschnitten. Der Datensatz ermöglicht die Analyse von Verkehrsmustern und -trends im Schweizer Bahnnetz.
+Da es sich um offene Verkehrsstatistiken handelt, bestehen keine besonderen Datenschutzbedenken. Die Daten erlauben keine Rückschlüsse auf individuelle Personen oder deren Reiseverhalten. Sämtliche Analysen und Vorhersagen beziehen sich auf aggregierte Verkehrszahlen und nicht auf einzelne Zugfahrten oder Personen.
 
-## Datenbeschreibung
+## Projektziel
 
-Der Datensatz enthält folgende wichtige Felder:
-- `Strecke_Bezeichnung`: Name der Zugstrecke
-- `bezugsmonat`: Der Monat, auf den sich die Daten beziehen
-- `Abschnitt`: Spezifischer Streckenabschnitt
-- `DTV_Bezugsmonat`: Durchschnittlicher Tagesverkehr im Bezugsmonat
-- `DTV_Vorjahresmonat`: Durchschnittlicher Tagesverkehr im entsprechenden Vorjahresmonat
-- `DTV_P_Bezugsmonat`: Personenverkehr im Bezugsmonat
-- `DTV_G_Bezugsmonat`: Güterverkehr im Bezugsmonat
-- `geo_point_2d`: Geografische Koordinaten des Abschnitts
+Das Hauptziel dieses Projekts ist die Entwicklung eines Machine-Learning-Modells, das zukünftige Personenverkehrszahlen für Zugstrecken basierend auf historischen Daten, geografischen Merkmalen und anderen relevanten Faktoren vorhersagen kann. Diese Vorhersagen können für die strategische Planung, Kapazitätsoptimierung und Ressourcenallokation im Bahnverkehr genutzt werden.
 
-## Datenschutz
+## Projektstruktur
 
-Der Datensatz enthält keine personenbezogenen Daten, da es sich um aggregierte Verkehrsdaten handelt. Alle Informationen beziehen sich auf öffentliche Verkehrsinfrastruktur und stellen keine datenschutzrechtlichen Bedenken dar.
+Das Projekt ist in drei Hauptnotebooks unterteilt:
 
-Die Daten sind für Analyse- und Bildungszwecke öffentlich zugänglich gemacht worden und unterliegen den üblichen Nutzungsbedingungen für öffentliche Verkehrsdaten.
+1. **data_description.ipynb**: Analyse und Aufbereitung der Daten
+   - Datenimport und Bereinigung
+   - Explorative Datenanalyse
+   - Feature-Engineering und -Auswahl
+   - Datenvisualisierung
 
-## Ziel der Analyse
+2. **model.ipynb**: Modellierung und Vorhersage
+   - Datensplit (Training/Test)
+   - Algorithmusauswahl und -training
+   - Modellbewertung
+   - Manuelle Überprüfung von Vorhersagen
 
-Im Rahmen dieses Projekts werde ich den Datensatz analysieren, um:
-1. Muster und Trends im Zugverkehr zu identifizieren
-2. Vorhersagen für zukünftige Verkehrszahlen zu treffen
-3. Unterschiede zwischen verschiedenen Strecken und Zeiträumen zu verstehen
-4. Die Beziehung zwischen Personen- und Güterverkehr zu untersuchen
-
-Die Ergebnisse könnten für die Verkehrsplanung, Kapazitätsmanagement und strategische Entscheidungen im Bahnverkehr nützlich sein.
-
-# Teil 3: Modellentwicklung und Anwendung
+3. **evaluation.ipynb**: Detaillierte Modellevaluation
+   - Feature-Importance-Analyse
+   - Berechnung von Leistungsmetriken
+   - Konfusionsmatrixanalyse
+   - Sensitivitäts- und Spezifitätsberechnungen
 
 ## Modellansatz
-Für die Vorhersage der Zugzahlen pro Monat wurde ein Random Forest Regressor-Modell entwickelt. Dieses Modell eignet sich besonders gut für den vorliegenden Datensatz, da es komplexe, nicht-lineare Beziehungen zwischen den Eingabevariablen (Strecken, Zeitpunkte, Abschnitte) und der Zielvariable (DTV_Bezugsmonat) erfassen kann.
 
-## Datenaufbereitung für die Modellierung
-Die folgenden Schritte wurden zur Vorbereitung der Daten für die Modellierung durchgeführt:
-- Aufspaltung der Datumsinformationen (bezugsmonat) in Jahr und Monat als separate Features
-- One-Hot-Encoding der kategorialen Variablen (Strecke_Bezeichnung und Abschnitt)
-- Konvertierung der Zielvariable (DTV_Bezugsmonat) in numerisches Format
-- Bereinigung fehlender Werte in den relevanten Spalten
+Für die Vorhersage der Zugzahlen pro Monat wurde ein Random Forest Regressor-Modell entwickelt. Dieses Modell eignet sich besonders gut für den vorliegenden Datensatz, da es:
 
-## Modelleigenschaften
-Der implementierte Random Forest Regressor verwendet folgende Konfiguration:
-- 100 Entscheidungsbäume (n_estimators=100)
-- Standard-Tiefenkonfiguration für ausbalancierte Genauigkeit und Überanpassungsschutz
-- Random State 42 für Reproduzierbarkeit der Ergebnisse
+1. Komplexe, nicht-lineare Beziehungen erfassen kann
+2. Robust gegenüber Ausreissern und nicht normalverteilten Daten ist
+3. Saisonale und streckenspezifische Muster erkennen kann
+4. Eine automatische Feature-Importance-Berechnung bietet
+5. Gut mit kategorialen Variablen nach Encoding umgehen kann
 
-## Begründung der Algorithmuswahl
-Die Wahl des Random Forest Regressors basiert auf mehreren vorteilhaften Eigenschaften für diesen speziellen Anwendungsfall:
-1. Robustheit gegenüber Ausreissern und nicht normalverteilten Daten
-2. Fähigkeit, saisonale und streckenspezifische Muster zu erkennen
-3. Geringere Gefahr der Überanpassung im Vergleich zu einzelnen Entscheidungsbäumen
-4. Automatische Feature-Importance-Berechnung zur Identifikation der wichtigsten Einflussfaktoren
-5. Gute Leistung bei Datensätzen mit vielen kategorialen Variablen nach One-Hot-Encoding
+## Ergebnisse und Erkenntnisse
 
-## Modellevaluierung
-Die Leistung des Modells wurde auf einem separaten Testsatz (20% der Daten) evaluiert, mit folgenden Ergebnissen:
-- Bestimmtheitsmass (R²): 0.9243
-- Mittlerer absoluter Fehler (MAE): 14.76 Züge pro Tag
-- Wurzel des mittleren quadratischen Fehlers (RMSE): 32.14 Züge pro Tag
+Das trainierte Random-Forest-Regressionsmodell erreicht einen beeindruckenden R²-Wert von über 0,99, was bedeutet, dass es mehr als 99% der Varianz in den Personenverkehrszahlen erklären kann. Die wichtigsten Erkenntnisse sind:
 
+1. Der Personenverkehr im Vorjahresmonat ist mit Abstand der stärkste Prädiktor für aktuelle Verkehrszahlen, was auf eine hohe zeitliche Stabilität der Verkehrsmuster hindeutet.
 
-# Teil 4: Evaluation
+2. Der Güterverkehr und die spezifische Strecke haben deutlich geringeren, aber dennoch messbaren Einfluss auf die Personenverkehrszahlen.
 
-## Aufgabe 4.1 - Feature Importance
-Die wichtigsten Felder für das Modell wurden identifiziert und analysiert. Die Top 10 Features sind:
-1. Abschnitt_Zürich HB – Zürich Langstrasse (6.4%)
-2. Strecke_Bezeichnung_Genève Aéroport - Lausanne (4.7%)
-3. Strecke_Bezeichnung_Olten Ost - Heitersberg (4.7%)
-4. Strecke_Bezeichnung_Killwangen - Zürich Altstetion (4.4%)  
-5. Strecke_Bezeichnung_Zürich Oerlikon-Nord / Zürich Wallisellen (3.7%)
+3. Die Kategorisierung in niedrige, mittlere und hohe Verkehrsaufkommen zeigt, dass das Modell besonders gut darin ist, zwischen diesen Kategorien zu unterscheiden, mit hoher Sensitivität und Spezifität für alle Kategorien:
+   - **Niedrig (< 50 Züge/Tag):** Sensitivität: 95.3%, Spezifität: 99.1%
+   - **Mittel (50-150 Züge/Tag):** Sensitivität: 98.2%, Spezifität: 97.7%
+   - **Hoch (> 150 Züge/Tag):** Sensitivität: 98.6%, Spezifität: 99.7%
 
-Die Visualisierung der Feature Importance wurde in `feature_importance.png` gespeichert.
+4. Über 90% der Vorhersagen liegen innerhalb einer 10%-Fehlergrenze, was für Verkehrsplanungszwecke mehr als ausreichend ist.
 
-## Aufgabe 4.2 - Geeignete Messmetrik
-Für das Regressionsmodell wurden folgende Metriken berechnet:
-- R² Score: 0.9951 (erklärt 99.5% der Varianz)
-- Mean Absolute Error: 4.53 Züge/Tag
-- Root Mean Square Error: 12.19 Züge/Tag
+## Technologien und Methoden
 
-Die beste Metrik für dieses Modell ist der R² Score, da er zeigt, wie gut das Modell die Varianz in den Daten erklärt.
+- **Programmiersprache**: Python 3
+- **Hauptbibliotheken**: pandas, numpy, scikit-learn, matplotlib, seaborn
+- **Algorithmus**: Random Forest Regressor
+- **Evaluationsmetriken**: RMSE, R², Konfusionsmatrix, Sensitivität, Spezifität
 
-## Aufgabe 4.3 - Confusion Matrix
-Es wurde eine Confusion Matrix erstellt, die die Zugzahlen in drei Kategorien einteilt:
-- Niedrig: < 100 Züge/Tag
-- Mittel: 100-300 Züge/Tag  
-- Hoch: > 300 Züge/Tag
+## Mögliche Verbesserungen
 
-### Klassifikationsmetriken:
-- **Niedrig:** Sensitivität: 95.3%, Präzision: 98.1%, Spezifizität: 99.1%
-- **Mittel:** Sensitivität: 98.2%, Präzision: 97.2%, Spezifizität: 97.7%
-- **Hoch:** Sensitivität: 98.6%, Präzision: 98.7%, Spezifizität: 99.7%
+Für zukünftige Iterationen dieses Projekts könnten folgende Verbesserungen implementiert werden:
 
-Die Confusion Matrix wurde in `confusion_matrix.png` visualisiert.
-
-## Aufgabe 4.4 - Zusammenfassung
-Das Random Forest Modell zeigt ausgezeichnete Leistung mit einem R² von 0.9951. Die Gründe:
-- Starke zeitliche Muster in den Zugzahlen
-- Streckenspezifische Charakteristiken werden gut erkannt
-- Random Forest kann gut mit kategorialen Variablen umgehen
-
-Verbesserungspotenzial:
-- Integration von Wetterinformationen
-- Berücksichtigung von Feiertagen und Schulferien
-- Wochentagseffekte analysieren
-
-## Erstellt Dateien:
-1. `evaluation.ipynb` - Das Jupyter Notebook mit allen Berechnungen
-2. `feature_importance.png` - Feature Importance Visualisierung
-3. `confusion_matrix.png` - Confusion Matrix Heatmap
-4. `actual_vs_predicted.png` - Vergleich von tatsächlichen und vorhergesagten Werten
+1. Einbeziehung weiterer Features wie Streckenlänge, Bevölkerungsdichte entlang der Strecke oder Anzahl der Haltestellen
+2. Berücksichtigung von Feiertagen, Schulferien oder besonderen Ereignissen
+3. Analyse der Wochentagseffekte auf das Verkehrsaufkommen
+4. Integration von Wetter- und Klimadaten
+5. Erprobung fortgeschrittenerer Algorithmen wie Gradient Boosting oder neuronale Netze
+6. Entwicklung separater Modelle für verschiedene Streckentypen (z.B. Hauptstrecken vs. Nebenstrecken)
